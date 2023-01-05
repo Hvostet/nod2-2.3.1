@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>New User</title>
+</head>
+<body>
+
+<form th:method="POST" th:action="@{/new}" th:object="${user}">
+  <label for="name">Enter name: </label>
+  <input type="text" th:field="*{name}" id="name"/>
+
+  <br/>
+  <br>
+  <label for="surname">Enter surname: </label>
+  <input type="text" th:field="*{surname}" id="surname"/>
+  <br>
+  <br/>
+  <label for="department">Enter department: </label>
+  <input type="text" th:field="*{department}" id="department"/>
+  <br/>
+  <br>
+  <label for="salary">Enter salary: </label>
+  <input type="text" th:field="*{salary}" id="salary"/>
+  <br>
+  <br>
+  <input type="submit" value="Create!" />
+
+  <input type="button" value="Добавить" onclick="window.location.href='/newUser'"/>
+  <!-- кнопка для создания юзера, замаплена на метод makeUser-->
+
+  <form action="/users/newUser" target="_blank">
+    <button>Create New user</button>
+  <br/>
+  <br>
+
+</form>
+
+</body>
+</html>
