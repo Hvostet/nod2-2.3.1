@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+    <style>table th, table td {padding: 5px;}</style>
+</head>
+<body>
+
+<h1>All Users</h1>
+
+<table class="table table-striped">
+    <tr>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Department</th>
+        <th>Salary</th>
+        <th>Actions</th>
+
+    </tr>
+    <tr th:each="user : ${users}">
+        <td th:utext="${user.name}"></td>
+        <td th:utext="${user.surname}"></td>
+        <td th:utext="${user.department}"></td>
+        <td th:utext="${user.salary}"></td>
+        <td><a th:href="@{/users/{id}/edit(id=${user.getId()})}">Edit</a>
+        <a th:method="DELETE" th:href="@{/users/{id}(id=${user.getId()})}">Delete</a></td>
+
+    </tr>
+
+
+</table>
+
+<br/>
+
+
+<form action="/users/new" target="_blank">
+    <button>Create new user</button>
+</form>
+
+</body>
+</html>
